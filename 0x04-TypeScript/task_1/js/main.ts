@@ -8,13 +8,15 @@ interface Teacher {
   [key: string]: any;           // allows extra attributes
 }
 
+// 2. Director interface extends Teacher
 interface Director extends Teacher {
   numberOfReports: number;
-};
+}
 
+// Example Director object
 const director1: Director = {
   firstName: 'Opeyemi',
-  lastName: 'Ajibade', // fixed typo here ✅
+  lastName: 'Ajibade',
   fullTimeEmployee: false,
   location: 'London',
   contract: false,     // extra attribute allowed
@@ -23,15 +25,15 @@ const director1: Director = {
 
 console.log(director1);
 
-// Define the interface for the printTeacher function
+// 3. Define the interface for the printTeacher function
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Implement the printTeacher function
+// 4. Implement the printTeacher function
 const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName.charAt(0)}. ${lastName}`;
-}
+};
 
-// Test the function
-console.log(printTeacher("Opeyemi", "Ajibade"));
+// 5. Test the function
+console.log(printTeacher("Opeyemi", "Ajibade")); // O. Ajibade
