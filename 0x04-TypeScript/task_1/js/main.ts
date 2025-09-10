@@ -34,4 +34,4 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
 };
 
 // Test
-console.log(printTeacher("Opeyemi", "Ajibade")); // O. Ajibade
+console.log(printTeacher("John", "Doe"));
