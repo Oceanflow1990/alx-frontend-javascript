@@ -8,12 +8,17 @@ interface Teacher {
   [key: string]: any;           // allows extra attributes
 }
 
-const teacher: Teacher = {
+interface Director extends Teacher {
+  numberOfReports: number;
+};
+
+const director1: Director = {
   firstName: 'Opeyemi',
   lastName: 'Ajibade', // fixed typo here ✅
   fullTimeEmployee: false,
   location: 'London',
   contract: false,     // extra attribute allowed
+  numberOfReports: 500,
 };
 
-console.log(teacher);
+console.log(director1);
