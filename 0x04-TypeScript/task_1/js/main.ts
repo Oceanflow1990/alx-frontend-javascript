@@ -23,14 +23,15 @@ const director1: Director = {
 
 console.log(director1);
 
-// Define the function interface
+// Define the interface for the function
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-function printTeacher(firstName: string, lastName: string): string {
+// Implement the function
+const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-console.log(printTeacher("John", "Doe")); // J. Doe
-console.log(printTeacher("Opeyemi", "Ajibade")); // O. Ajibade
+// Test the function
+console.log(printTeacher("John", "Doe")); // Should print "J. Doe"
