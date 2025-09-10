@@ -23,15 +23,15 @@ const director1: Director = {
 
 console.log(director1);
 
-// Define the function interface
+/// Define the function interface
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Implement as a normal function
-function printTeacher(firstName: string, lastName: string): string {
+// Implement using parameter destructuring
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName}. ${lastName}`;
 }
 
 // Example usage
-console.log(printTeacher("John", "Doe")); // J. Doe
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
