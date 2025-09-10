@@ -28,11 +28,10 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Implement as a normal function
-function printTeacher(firstName: string, lastName: string): string {
+// Implement the function
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName.charAt(0)}. ${lastName}`;
-}
+};
 
-// Example usage
-console.log(printTeacher("John", "Doe"));      // J. Doe
+// Test
 console.log(printTeacher("Opeyemi", "Ajibade")); // O. Ajibade
