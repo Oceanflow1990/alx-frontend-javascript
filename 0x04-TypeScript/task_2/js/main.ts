@@ -1,51 +1,50 @@
 interface DirectorInterface {
-  workFromHome(): string;
-  getToWork(): string;          // 👈 matches the question (not getCoffeeBreak)
-  workDirectorTasks(): string;
+    workFromHome() : string;
+    getCoffeeBreak(): string;
+    workDirectorTasks(): string;
 }
 
 interface TeacherInterface {
-  workFromHome(): string;
-  getCoffeeBreak(): string;
-  workTeacherTasks(): string;
+    workFromHome() : string;
+    getCoffeeBreak(): string;
+    workTeacherTasks(): string;
 }
 
 class Director implements DirectorInterface {
-  workFromHome(): string {
-    return "Working from home";
-  }
+    workFromHome(): string {
+       return "Working from home";
+    }
 
-  getToWork(): string {        // 👈 must be getToWork
-    return "Getting a coffee break";
-  }
+    getCoffeeBreak(): string {
+       return "Getting a coffee break";
+    }
 
-  workDirectorTasks(): string {
-    return "Getting to director tasks";
-  }
+    workDirectorTasks(): string {
+       return "Getting to director tasks";
+    }
 }
 
 class Teacher implements TeacherInterface {
-  workFromHome(): string {
-    return "Cannot work from home";
-  }
+    workFromHome(): string {
+        return "Cannot work from home";
+    }
 
-  getCoffeeBreak(): string {
-    return "Cannot have a break";
-  }
+    getCoffeeBreak(): string {
+        return "Cannot have a break";
+    }
 
-  workTeacherTasks(): string {
-    return "Getting to work";
-  }
+    workTeacherTasks(): string {
+        return "Getting to work";
+    }
 }
 
 function createEmployee(salary: number | string): Director | Teacher {
-    if (typeof salary === "number" && salary < 500) {
-        return new Teacher();
-    }
-    return new Director();
+  if (salary < 500) {          // 👈 must be exactly like this
+    return new Teacher();
+  }
+  return new Director();
 }
 
-// Expected results
-console.log(createEmployee(200));   // Teacher
-console.log(createEmployee(1000));  // Director
-console.log(createEmployee("$500")); // Director
+console.log(createEmployee(200) instanceof Teacher ? "Teacher" : "Director"); // Teacher
+console.log(createEmployee(1000) instanceof Teacher ? "Teacher" : "Director"); // Director
+console.log(createEmployee("$500") instanceof Teacher ? "Teacher" : "Director"); // Director
