@@ -48,3 +48,17 @@ function createEmployee(salary: number | string): Director | Teacher {
 console.log(createEmployee(200) instanceof Teacher ? "Teacher" : "Director"); // Teacher
 console.log(createEmployee(1000) instanceof Teacher ? "Teacher" : "Director"); // Director
 console.log(createEmployee("$500") instanceof Teacher ? "Teacher" : "Director"); // Director
+
+
+type Subjects = "Math" | "History";
+
+
+function teachClass (todayClass: Subjects) : string {
+
+        if(todayClass === "Math") {
+            return "Teaching Math";
+        }
+        else{
+            return "Teaching History";
+        }
+}
