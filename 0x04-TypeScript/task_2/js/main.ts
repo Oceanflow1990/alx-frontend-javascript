@@ -52,12 +52,10 @@ console.log(createEmployee("$500") instanceof Teacher ? "Teacher" : "Director");
 
 type Subjects = "Math" | "History";
 
-
-function teachClass(todayClass: Subjects): string {
-
-        if (todayClass === "Math") {
-            return "Teaching Math";
-        } else {
-            return "Teaching History";
-        }
+function teachClass(todayClass:Subjects): string {
+    if (todayClass === "Math") {
+        return "Teaching Math";
+    } else {
+        return "Teaching History";
+    }
 }
